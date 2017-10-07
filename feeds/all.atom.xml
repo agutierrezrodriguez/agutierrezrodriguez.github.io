@@ -1,2 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Antonio Gutiérrez</title><link href="https://agutierrezrodriguez.github.io/" rel="alternate"></link><link href="https://agutierrezrodriguez.github.io/feeds/all.atom.xml" rel="self"></link><id>https://agutierrezrodriguez.github.io/</id><updated>2010-12-03T10:20:00+01:00</updated><entry><title>My First Review</title><link href="https://agutierrezrodriguez.github.io/my-first-review.html" rel="alternate"></link><published>2010-12-03T10:20:00+01:00</published><updated>2010-12-03T10:20:00+01:00</updated><author><name>Antonio Gutiérrez</name></author><id>tag:agutierrezrodriguez.github.io,2010-12-03:/my-first-review.html</id><summary type="html">&lt;p&gt;Following is a review of my favorite mechanical keyboard.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Following is a review of my favorite mechanical keyboard.&lt;/p&gt;</content></entry></feed>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Antonio Gutiérrez</title><link href="https://agutierrezrodriguez.github.io/" rel="alternate"></link><link href="https://agutierrezrodriguez.github.io/feeds/all.atom.xml" rel="self"></link><id>https://agutierrezrodriguez.github.io/</id><updated>2017-10-07T17:30:00+02:00</updated><entry><title>Script que se ejecuta al apagar el equipo en Systemd</title><link href="https://agutierrezrodriguez.github.io/script-que-se-ejecuta-al-apagar-el-equipo-en-systemd.html" rel="alternate"></link><published>2017-10-07T17:30:00+02:00</published><updated>2017-10-07T17:30:00+02:00</updated><author><name>Antonio Gutiérrez</name></author><id>tag:agutierrezrodriguez.github.io,2017-10-07:/script-que-se-ejecuta-al-apagar-el-equipo-en-systemd.html</id><summary type="html">&lt;p&gt;&lt;img alt="Systemd image" src="https://agutierrezrodriguez.github.io/images/systemd.png"&gt;&lt;/p&gt;
+&lt;p&gt;Hay algunas veces que necesitamos ejecutar un script al apagar el sistema, como
+por ejemplo una tarea de limpieza, un chequeo, una actualización, etc.&lt;/p&gt;
+&lt;p&gt;En sistemas con SysVinit se ponía el script en el directorio rc0.d (apagado
+del sistema) y a funcionar. Con Systemd hay que realizar un archivo …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="Systemd image" src="https://agutierrezrodriguez.github.io/images/systemd.png"&gt;&lt;/p&gt;
+&lt;p&gt;Hay algunas veces que necesitamos ejecutar un script al apagar el sistema, como
+por ejemplo una tarea de limpieza, un chequeo, una actualización, etc.&lt;/p&gt;
+&lt;p&gt;En sistemas con SysVinit se ponía el script en el directorio rc0.d (apagado
+del sistema) y a funcionar. Con Systemd hay que realizar un archivo "unit"
+para que lo entienda systemd y en dicho archivo poner el script a ejecutar.&lt;/p&gt;
+&lt;p&gt;Lo primero que hay que hacer es crear el archivo "unit" (configuración del
+servicio) en un directorio de Systemd, yo uso /etc/systemd/system/, con el
+contenido siguiente y con la extensión .service:&lt;/p&gt;
+&lt;p&gt;MiScriptDeApagado.service&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;[Unit]&lt;/span&gt;
+&lt;span class="na"&gt;Description&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Mi script de apagado&amp;quot;&lt;/span&gt;
+&lt;span class="na"&gt;Before&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;shutdown.target&lt;/span&gt;
+
+&lt;span class="k"&gt;[Service]&lt;/span&gt;
+&lt;span class="na"&gt;Type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;oneshot&lt;/span&gt;
+&lt;span class="na"&gt;RemainAfterExit&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;true&lt;/span&gt;
+&lt;span class="na"&gt;ExecStart&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;/bin/true&lt;/span&gt;
+&lt;span class="c1"&gt;# ExecStop=&amp;lt;Ruta del script a ejecutar o comando a ejecutar&amp;gt;&lt;/span&gt;
+&lt;span class="na"&gt;ExecStop&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;date -Iseconds &amp;gt;&amp;gt; /var/log/apagado.log&amp;quot;&lt;/span&gt;
+
+&lt;span class="k"&gt;[Install]&lt;/span&gt;
+&lt;span class="na"&gt;WantedBy&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;multi-user.target&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Una vez guardado dicho archivo hay que aplicar los cambios en Systemd
+reiniciando el demonio y activando el servicio de la siguiente forma&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;systemctl daemon-reload
+systemctl &lt;span class="nb"&gt;enable&lt;/span&gt; MiScriptDeApagado
+systemctl start MiScriptDeApagado
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Y con esto ya debería de funcionar. Actualmente lo tengo tal cual en un sistema
+Debian Stretch - 9 funcionando.&lt;/p&gt;
+&lt;p&gt;Si tenéis cualquier duda podéis dejarme un comentario.&lt;/p&gt;
+&lt;p&gt;Un saludo.&lt;/p&gt;</content><category term="Linux"></category><category term="Systemd"></category></entry></feed>
