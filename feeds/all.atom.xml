@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Antonio Gutiérrez</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2017-10-13T17:30:00+02:00</updated><entry><title>¿Qué es Docker y porqué es tan popular?</title><link href="/que-es-docker-y-porque-es-tan-popular.html" rel="alternate"></link><published>2017-10-13T17:30:00+02:00</published><updated>2017-10-13T17:30:00+02:00</updated><author><name>Antonio Gutiérrez</name></author><id>tag:None,2017-10-13:/que-es-docker-y-porque-es-tan-popular.html</id><summary type="html">&lt;p&gt;&lt;img alt="Docker imagen" src="/images/docker.png"&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Antonio Gutiérrez</title><link href="https://agutierrezrodriguez.github.io/" rel="alternate"></link><link href="https://agutierrezrodriguez.github.io/feeds/all.atom.xml" rel="self"></link><id>https://agutierrezrodriguez.github.io/</id><updated>2017-10-13T17:30:00+02:00</updated><entry><title>¿Qué es Docker y porqué es tan popular?</title><link href="https://agutierrezrodriguez.github.io/que-es-docker-y-porque-es-tan-popular.html" rel="alternate"></link><published>2017-10-13T17:30:00+02:00</published><updated>2017-10-13T17:30:00+02:00</updated><author><name>Antonio Gutiérrez</name></author><id>tag:agutierrezrodriguez.github.io,2017-10-13:/que-es-docker-y-porque-es-tan-popular.html</id><summary type="html">&lt;p&gt;&lt;img alt="Docker imagen" src="https://agutierrezrodriguez.github.io/images/docker.png"&gt;&lt;/p&gt;
 &lt;p&gt;Para quien no lo conozca, Docker es un sistema de virtualización basado en 
 contenedores o virtualización de sistema operativo que funciona bajo sistemas
 Linux y permite ejecutar los contenedores (máquinas virtuales) sin apenas 
 penalización. &lt;/p&gt;
 &lt;h2&gt;Un poco de historia&lt;/h2&gt;
-&lt;p&gt;La primera versión de Docker fue lanzada en marzo de 2013 como …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="Docker imagen" src="/images/docker.png"&gt;&lt;/p&gt;
+&lt;p&gt;La primera versión de Docker fue lanzada en marzo de 2013 como …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="Docker imagen" src="https://agutierrezrodriguez.github.io/images/docker.png"&gt;&lt;/p&gt;
 &lt;p&gt;Para quien no lo conozca, Docker es un sistema de virtualización basado en 
 contenedores o virtualización de sistema operativo que funciona bajo sistemas
 Linux y permite ejecutar los contenedores (máquinas virtuales) sin apenas 
@@ -45,7 +45,7 @@ de sistema operativo, a diferencia de otros sistemas de virtualización como los
 de hypervisor, no necesita emular el hardware ya que se ejecuta sobre el kernel
 de Linux (v3.10 o superior) y sobre el kernel se ejecutan las aplicaciones 
 directamente por lo que el aumento de rendimiento es considerable.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Docker containers vs hypervisor image" src="/images/docker2.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Docker containers vs hypervisor image" src="https://agutierrezrodriguez.github.io/images/docker2.png"&gt;&lt;/p&gt;
 &lt;p&gt;Docker utiliza la característica del kernel cgroups y namespaces para 
 funcionar. Dichas características ofrecen aislamiento de los procesos y 
 limitación de los recursos para cada contenedor a ejecutar.&lt;/p&gt;
@@ -116,11 +116,11 @@ potencial que tiene.&lt;/p&gt;
 &lt;li&gt;https://docs.docker.com/&lt;/li&gt;
 &lt;li&gt;https://es.wikipedia.org/wiki/Docker_(software)&lt;/li&gt;
 &lt;li&gt;https://en.wikipedia.org/wiki/Operating-system-level_virtualization#IMPLEMENTATIONS&lt;/li&gt;
-&lt;/ul&gt;</content><category term="Linux"></category><category term="Docker"></category><category term="Devops"></category></entry><entry><title>Script que se ejecuta al apagar el equipo en Systemd</title><link href="/script-que-se-ejecuta-al-apagar-el-equipo-en-systemd.html" rel="alternate"></link><published>2017-10-07T17:30:00+02:00</published><updated>2017-10-07T17:30:00+02:00</updated><author><name>Antonio Gutiérrez</name></author><id>tag:None,2017-10-07:/script-que-se-ejecuta-al-apagar-el-equipo-en-systemd.html</id><summary type="html">&lt;p&gt;&lt;img alt="Systemd image" src="/images/systemd.png"&gt;&lt;/p&gt;
+&lt;/ul&gt;</content><category term="Linux"></category><category term="Docker"></category><category term="Devops"></category></entry><entry><title>Script que se ejecuta al apagar el equipo en Systemd</title><link href="https://agutierrezrodriguez.github.io/script-que-se-ejecuta-al-apagar-el-equipo-en-systemd.html" rel="alternate"></link><published>2017-10-07T17:30:00+02:00</published><updated>2017-10-07T17:30:00+02:00</updated><author><name>Antonio Gutiérrez</name></author><id>tag:agutierrezrodriguez.github.io,2017-10-07:/script-que-se-ejecuta-al-apagar-el-equipo-en-systemd.html</id><summary type="html">&lt;p&gt;&lt;img alt="Systemd image" src="https://agutierrezrodriguez.github.io/images/systemd.png"&gt;&lt;/p&gt;
 &lt;p&gt;Hay algunas veces que necesitamos ejecutar un script al apagar el sistema, como
 por ejemplo una tarea de limpieza, un chequeo, una actualización, etc.&lt;/p&gt;
 &lt;p&gt;En sistemas con SysVinit se ponía el script en el directorio rc0.d (apagado
-del sistema) y a funcionar. Con Systemd hay que realizar un archivo …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="Systemd image" src="/images/systemd.png"&gt;&lt;/p&gt;
+del sistema) y a funcionar. Con Systemd hay que realizar un archivo …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="Systemd image" src="https://agutierrezrodriguez.github.io/images/systemd.png"&gt;&lt;/p&gt;
 &lt;p&gt;Hay algunas veces que necesitamos ejecutar un script al apagar el sistema, como
 por ejemplo una tarea de limpieza, un chequeo, una actualización, etc.&lt;/p&gt;
 &lt;p&gt;En sistemas con SysVinit se ponía el script en el directorio rc0.d (apagado
