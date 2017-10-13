@@ -1,0 +1,234 @@
+<!DOCTYPE HTML>
+<html lang="es">
+	<head>
+		<title>¿Qué es Docker y porqué es tan popular?</title>
+		<meta charset="utf-8" />
+        <meta name="theme-color" content="#222" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="/theme/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="/theme/css/main.css" />
+        <link rel="stylesheet" href="/theme/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic|Source+Code+Pro:400" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="/theme/css/ie8.css" /><![endif]-->
+            <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Antonio Gutiérrez Atom Feed" />
+	</head>
+	<body>
+
+		<!-- Header -->
+			<section id="header">
+				<header>
+					<span class="image avatar"><img src="/theme/images/avatar.jpg" alt="" /></span>
+					<h1 id="logo"><a href="/">Antonio Gutiérrez</a></h1>
+ <p>SysAdmin / DevOps / Python Backend</p>				</header>
+				<nav id="nav">
+					<ul>
+                                <li><a class="active" href="/category/linux.html">Linux</a></li>
+                                <li><a href="/pages/sobre-mi.html">Sobre mí</a></li>
+					</ul>
+				</nav>
+				<footer>
+                        <ul class="icons">
+                                <li><a href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" class="icon fa-rss"><span class="label">atom feed</span></a></li>
+
+                                <li><a href="https://www.linkedin.com/in/antonio-gutierrez-rodriguez/" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+                                <li><a href="https://twitter.com/toniusco" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                                <li><a href="https://github.com/agutierrezrodriguez/" class="icon fa-github"><span class="label">GitHub</span></a></li>
+                        </ul>
+				</footer>
+			</section>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+<section id="one">
+    <div class="container">
+        <header class="major">
+            <h2><a href="/que-es-docker-y-porque-es-tan-popular.html" rel="bookmark" title="Enlace a ¿Qué es Docker y porqué es tan popular?">¿Qué es Docker y porqué es tan popular?</a></h2>
+        </header>
+        <p><div class="addthis_inline_share_toolbox"></div>
+</p>
+        <p><footer class="post-info">
+        <abbr class="published" title="2017-10-13T17:30:00+02:00">
+                Publicado el viernes 13 de octubre de 2017
+        </abbr>
+
+        <address class="vcard author">
+                Por                         <a class="url fn" href="/author/antonio-gutierrez.html">Antonio Gutiérrez</a>
+        </address>
+<p>En <a href="/category/linux.html">Linux</a>.</p>
+
+</footer><!-- /.post-info --></p>
+        <p><p><img alt="Docker imagen" src="/images/docker.png"></p>
+<p>Para quien no lo conozca, Docker es un sistema de virtualización basado en 
+contenedores o virtualización de sistema operativo que funciona bajo sistemas
+Linux y permite ejecutar los contenedores (máquinas virtuales) sin apenas 
+penalización. </p>
+<h2>Un poco de historia</h2>
+<p>La primera versión de Docker fue lanzada en marzo de 2013 como proyecto interno
+de la empresa dotCloud. A partir de entonces Docker empezó a recibir 
+colaboración de grandes empresas como RedHat, Microsoft o IBM debido al gran 
+potencial que mostraba.</p>
+<p>En sus inicios Docker se lanzaba sobre LXC (Linux Containers) hasta la versión
+ 0.9 que se lanzó el soporte para libcontainer y ya lanzaba el propio Docker 
+ sus contenedores sobre el kernel de Linux.</p>
+<p>La primera versión (1.0) disponible para producción llegaría en junio de 2014
+en la cual Docker ya tenía soporte para ejecutar los contenedores, basarse en 
+una imagen y construir las imágenes mediante un archivo Dockerfile.</p>
+<p>En las siguientes versiones se fue puliendo el sistema agregando soporte para 
+otros sistemas de archivos, soporte para variables de entorno, soporte para 
+IPv6, etc...</p>
+<p>A partir de la versión 1.9 se integró una nueva capa de red en Docker dando
+mayor capacidad de configuración entre contenedores como múltiples redes,
+ redes privadas, soporte para plugins de red externos entre otras mejoras.</p>
+<p>Hasta ahora Docker se ha centrado en mejorar y pulir el sistema de contenedores
+pero sobre un mismo host o servidor, a partir de la versión 1.12 incluye a 
+Docker Swarm dentro de Docker como orquestador de varios hosts con Docker para
+montar servicios en alta disponibilidad, balanceo de carga y descubrimiento de
+servicios. A partir de ahora Docker se centra en llegar a un ámbito mas 
+profesional.</p>
+<p>En marzo de 2017 Docker se bifurca en 2 soluciones, Docker CE y Docker EE. 
+Docker CE (Community Edition) es el motor Docker libre con todas las 
+características mencionadas anteriormente, y con colaboración del a comunidad.
+Docker EE (Enterprise Edition) es Docker con añadidos empresariales y de pago,
+diseñado para tener mas robustez, y características que no se encontrarán en 
+Docker CE como integración con LDAP, asistencia, escaneos de seguridad, etc.</p>
+<h2>Cómo funciona</h2>
+<p>Como ya hemos comentado anteriormente, Docker es un sistema de virtualización
+de sistema operativo, a diferencia de otros sistemas de virtualización como los
+de hypervisor, no necesita emular el hardware ya que se ejecuta sobre el kernel
+de Linux (v3.10 o superior) y sobre el kernel se ejecutan las aplicaciones 
+directamente por lo que el aumento de rendimiento es considerable.</p>
+<p><img alt="Docker containers vs hypervisor image" src="/images/docker2.png"></p>
+<p>Docker utiliza la característica del kernel cgroups y namespaces para 
+funcionar. Dichas características ofrecen aislamiento de los procesos y 
+limitación de los recursos para cada contenedor a ejecutar.</p>
+<p>Docker almacena toda la información en un sistema de capas de solo lectura y
+de lectura y escritura sobre la última capa. Esto provoca que varias imágenes
+puedan tener la misma capa reduciendo el espacio utilizado en disco de forma
+eficiente. Además, las imágenes Docker también se componen de un conjunto de 
+capas y de unas versiones a otras puede que tan solo se descarguen unas capas 
+porque el resto permanecen intactas por lo que también se consigue reducir el 
+ancho de banda necesitado para funcionar.</p>
+<h2>¿Porque tiene tanto éxito Docker?</h2>
+<p>Docker se ha extendido muy rápido a pesar de lo joven que es (4 años) y es 
+porque aglutina varias características que lo hacen único y productivo.
+Docker no es el primer sistema de virtualización de contenedores, antes de el
+ya existían LXC (Linux Containers), OpenVZ, Jails en FreeBSD, etc. Pero como
+es que si ya existían otros sistemas de contenedores, Docker se haya expandido 
+tanto.</p>
+<ul>
+<li>
+<p><strong>Repositorio de imágenes</strong>. Docker proporciona un repositorio central de 
+imágenes alojado en Internet (https://hub.docker.com/) donde los usuarios y/o
+instituciones pueden subir sus imágenes listas para funcionar. Además 
+proporciona el software necesario para que cualquier empresa pueda montarse un 
+repositorio privado. Esto posibilita que todas las imágenes están accesibles
+de una forma rápida y sencilla.</p>
+</li>
+<li>
+<p><strong>Infraestructura como código</strong>. Para generar imágenes Docker se puede 
+utilizar un archivo Dockerfile que no es mas que las instrucciones a ejecutar
+por Docker a la hora de construir la imagen. Con esto se consigue que podamos
+tener versionada toda la infraestructura de imágenes y sea fácilmente 
+replicable.</p>
+</li>
+<li>
+<p><strong>Inmutabilidad</strong>. Una imagen Docker se ejecuta igual sobre cualquier sistema
+operativo o versión de Docker (A excepción de usar características no 
+disponibles en versiones anteriores), por lo que un contenedor que nos funciona
+en local va a funcionar igual en el servidor/es empresarial/es de producción. 
+Esta característica resuelve muchos problemas de dependencias, versiones, etc.
+en el desarrollo de software, ya que el contenedor tendrá únicamente las 
+librerías y programas que necesite en la versión correcta.</p>
+</li>
+<li>
+<p><strong>Ligereza</strong>. Como ya hemos comentado, Docker utiliza un sistema de capas 
+para almacenar la información, por lo que una actualización no tendrá que 
+descargar una imagen grande y pesada. Además un contenedor Docker arranca en 
+segundos, por lo que un despliegue a producción de Docker dura unos pocos 
+segundos reduciendo el riesgo de sobrecarga o despliegues eternos.</p>
+</li>
+<li>
+<p><strong>Operatividad</strong>. Docker soporta el "Taggueado" de las imágenes, por lo que
+al igual que podemos tener versionado nuestro software, podemos versionar 
+nuestras imágenes y etiquetarlas según la versión de nuestro código, por lo que
+distribuir una aplicación es tan sencillo como indicar la ruta de una imagen 
+con su etiqueta.</p>
+</li>
+</ul>
+<p>A parte de estas características, Docker ha desarrollado otras herramientas 
+como docker-compose que te permiten el despliegue en segundos de una 
+infraestructura completa con cada elemento diferenciado y configurable o como
+Docker Swarm que maneja varios nodos con Docker y balancea servicios, escala y
+maneja los despliegues.</p>
+<p>También he intentado resumir un poco y no entrar en detalles, ya que Docker es
+mucho mas de lo que he comentado, pero nos podemos hacer a una idea del 
+potencial que tiene.</p>
+<h3>Fuentes</h3>
+<ul>
+<li>https://docs.docker.com/</li>
+<li>https://es.wikipedia.org/wiki/Docker_(software)</li>
+<li>https://en.wikipedia.org/wiki/Operating-system-level_virtualization#IMPLEMENTATIONS</li>
+</ul></p>
+            <div class="comments">
+                <div id="disqus_thread"></div>
+                <script type="text/javascript">
+                    var disqus_shortname = 'agutierrezrodriguez-github-io';
+                    var disqus_identifier = 'que-es-docker-y-porque-es-tan-popular.html';
+                    var disqus_url = '/que-es-docker-y-porque-es-tan-popular.html';
+                    (function() {
+                        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                        dsq.src = '//agutierrezrodriguez-github-io.disqus.com/embed.js';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+                </script>
+                <noscript>Por favor, habilita javascript para ver los comentarios.</noscript>
+            </div>
+    </div>
+</section>
+					</div>
+
+				<!-- Footer -->
+					<section id="footer">
+						<div class="container">
+							<ul class="copyright">
+								<li>&copy; Antonio Gutiérrez. Todos los derechos reservados.</li><li>Diseño: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Scripts -->
+        <script src="theme/js/jquery.min.js"></script>
+        <script src="theme/js/jquery.scrollzer.min.js"></script>
+        <script src="theme/js/jquery.scrolly.min.js"></script>
+        <script src="theme/js/skel.min.js"></script>
+        <script src="theme/js/util.js"></script>
+        <!--[if lte IE 8]><script src="theme/js/ie/respond.min.js"></script><![endif]-->
+        <script src="theme/js/main.js"></script>
+
+            <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-598f3d1eafff98c0"></script>
+
+    <script type="text/javascript">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-101620037-1', 'auto');
+    ga('send', 'pageview');
+    </script>
+<script type="text/javascript">
+    var disqus_shortname = 'agutierrezrodriguez-github-io';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+	</body>
+</html>
