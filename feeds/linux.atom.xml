@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Antonio Gutiérrez - Linux</title><link href="https://agutierrezrodriguez.github.io/" rel="alternate"></link><link href="https://agutierrezrodriguez.github.io/feeds/linux.atom.xml" rel="self"></link><id>https://agutierrezrodriguez.github.io/</id><updated>2017-10-13T17:30:00+02:00</updated><subtitle>SysAdmin / DevOps / Python Backend</subtitle><entry><title>¿Qué es Docker y porqué es tan popular?</title><link href="https://agutierrezrodriguez.github.io/que-es-docker-y-porque-es-tan-popular.html" rel="alternate"></link><published>2017-10-13T17:30:00+02:00</published><updated>2017-10-13T17:30:00+02:00</updated><author><name>Antonio Gutiérrez</name></author><id>tag:agutierrezrodriguez.github.io,2017-10-13:/que-es-docker-y-porque-es-tan-popular.html</id><summary type="html">&lt;p&gt;&lt;img alt="Docker imagen" src="https://agutierrezrodriguez.github.io/images/docker.png"&gt;&lt;/p&gt;
+&lt;p&gt;Para quien no lo conozca, Docker es un sistema de virtualización basado en 
+contenedores o virtualización de sistema operativo que funciona bajo sistemas
+Linux y permite ejecutar los contenedores (máquinas virtuales) sin apenas 
+penalización. &lt;/p&gt;
+&lt;h2&gt;Un poco de historia&lt;/h2&gt;
+&lt;p&gt;La primera versión de Docker fue lanzada en marzo de 2013 como …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="Docker imagen" src="https://agutierrezrodriguez.github.io/images/docker.png"&gt;&lt;/p&gt;
+&lt;p&gt;Para quien no lo conozca, Docker es un sistema de virtualización basado en 
+contenedores o virtualización de sistema operativo que funciona bajo sistemas
+Linux y permite ejecutar los contenedores (máquinas virtuales) sin apenas 
+penalización. &lt;/p&gt;
+&lt;h2&gt;Un poco de historia&lt;/h2&gt;
+&lt;p&gt;La primera versión de Docker fue lanzada en marzo de 2013 como proyecto interno
+de la empresa dotCloud. A partir de entonces Docker empezó a recibir 
+colaboración de grandes empresas como RedHat, Microsoft o IBM debido al gran 
+potencial que mostraba.&lt;/p&gt;
+&lt;p&gt;En sus inicios Docker se lanzaba sobre LXC (Linux Containers) hasta la versión
+ 0.9 que se lanzó el soporte para libcontainer y ya lanzaba el propio Docker 
+ sus contenedores sobre el kernel de Linux.&lt;/p&gt;
+&lt;p&gt;La primera versión (1.0) disponible para producción llegaría en junio de 2014
+en la cual Docker ya tenía soporte para ejecutar los contenedores, basarse en 
+una imagen y construir las imágenes mediante un archivo Dockerfile.&lt;/p&gt;
+&lt;p&gt;En las siguientes versiones se fue puliendo el sistema agregando soporte para 
+otros sistemas de archivos, soporte para variables de entorno, soporte para 
+IPv6, etc...&lt;/p&gt;
+&lt;p&gt;A partir de la versión 1.9 se integró una nueva capa de red en Docker dando
+mayor capacidad de configuración entre contenedores como múltiples redes,
+ redes privadas, soporte para plugins de red externos entre otras mejoras.&lt;/p&gt;
+&lt;p&gt;Hasta ahora Docker se ha centrado en mejorar y pulir el sistema de contenedores
+pero sobre un mismo host o servidor, a partir de la versión 1.12 incluye a 
+Docker Swarm dentro de Docker como orquestador de varios hosts con Docker para
+montar servicios en alta disponibilidad, balanceo de carga y descubrimiento de
+servicios. A partir de ahora Docker se centra en llegar a un ámbito mas 
+profesional.&lt;/p&gt;
+&lt;p&gt;En marzo de 2017 Docker se bifurca en 2 soluciones, Docker CE y Docker EE. 
+Docker CE (Community Edition) es el motor Docker libre con todas las 
+características mencionadas anteriormente, y con colaboración del a comunidad.
+Docker EE (Enterprise Edition) es Docker con añadidos empresariales y de pago,
+diseñado para tener mas robustez, y características que no se encontrarán en 
+Docker CE como integración con LDAP, asistencia, escaneos de seguridad, etc.&lt;/p&gt;
+&lt;h2&gt;Cómo funciona&lt;/h2&gt;
+&lt;p&gt;Como ya hemos comentado anteriormente, Docker es un sistema de virtualización
+de sistema operativo, a diferencia de otros sistemas de virtualización como los
+de hypervisor, no necesita emular el hardware ya que se ejecuta sobre el kernel
+de Linux (v3.10 o superior) y sobre el kernel se ejecutan las aplicaciones 
+directamente por lo que el aumento de rendimiento es considerable.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Docker containers vs hypervisor image" src="https://agutierrezrodriguez.github.io/images/docker2.png"&gt;&lt;/p&gt;
+&lt;p&gt;Docker utiliza la característica del kernel cgroups y namespaces para 
+funcionar. Dichas características ofrecen aislamiento de los procesos y 
+limitación de los recursos para cada contenedor a ejecutar.&lt;/p&gt;
+&lt;p&gt;Docker almacena toda la información en un sistema de capas de solo lectura y
+de lectura y escritura sobre la última capa. Esto provoca que varias imágenes
+puedan tener la misma capa reduciendo el espacio utilizado en disco de forma
+eficiente. Además, las imágenes Docker también se componen de un conjunto de 
+capas y de unas versiones a otras puede que tan solo se descarguen unas capas 
+porque el resto permanecen intactas por lo que también se consigue reducir el 
+ancho de banda necesitado para funcionar.&lt;/p&gt;
+&lt;h2&gt;¿Porque tiene tanto éxito Docker?&lt;/h2&gt;
+&lt;p&gt;Docker se ha extendido muy rápido a pesar de lo joven que es (4 años) y es 
+porque aglutina varias características que lo hacen único y productivo.
+Docker no es el primer sistema de virtualización de contenedores, antes de el
+ya existían LXC (Linux Containers), OpenVZ, Jails en FreeBSD, etc. Pero como
+es que si ya existían otros sistemas de contenedores, Docker se haya expandido 
+tanto.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Repositorio de imágenes&lt;/strong&gt;. Docker proporciona un repositorio central de 
+imágenes alojado en Internet (https://hub.docker.com/) donde los usuarios y/o
+instituciones pueden subir sus imágenes listas para funcionar. Además 
+proporciona el software necesario para que cualquier empresa pueda montarse un 
+repositorio privado. Esto posibilita que todas las imágenes están accesibles
+de una forma rápida y sencilla.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Infraestructura como código&lt;/strong&gt;. Para generar imágenes Docker se puede 
+utilizar un archivo Dockerfile que no es mas que las instrucciones a ejecutar
+por Docker a la hora de construir la imagen. Con esto se consigue que podamos
+tener versionada toda la infraestructura de imágenes y sea fácilmente 
+replicable.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Inmutabilidad&lt;/strong&gt;. Una imagen Docker se ejecuta igual sobre cualquier sistema
+operativo o versión de Docker (A excepción de usar características no 
+disponibles en versiones anteriores), por lo que un contenedor que nos funciona
+en local va a funcionar igual en el servidor/es empresarial/es de producción. 
+Esta característica resuelve muchos problemas de dependencias, versiones, etc.
+en el desarrollo de software, ya que el contenedor tendrá únicamente las 
+librerías y programas que necesite en la versión correcta.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Ligereza&lt;/strong&gt;. Como ya hemos comentado, Docker utiliza un sistema de capas 
+para almacenar la información, por lo que una actualización no tendrá que 
+descargar una imagen grande y pesada. Además un contenedor Docker arranca en 
+segundos, por lo que un despliegue a producción de Docker dura unos pocos 
+segundos reduciendo el riesgo de sobrecarga o despliegues eternos.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Operatividad&lt;/strong&gt;. Docker soporta el "Taggueado" de las imágenes, por lo que
+al igual que podemos tener versionado nuestro software, podemos versionar 
+nuestras imágenes y etiquetarlas según la versión de nuestro código, por lo que
+distribuir una aplicación es tan sencillo como indicar la ruta de una imagen 
+con su etiqueta.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A parte de estas características, Docker ha desarrollado otras herramientas 
+como docker-compose que te permiten el despliegue en segundos de una 
+infraestructura completa con cada elemento diferenciado y configurable o como
+Docker Swarm que maneja varios nodos con Docker y balancea servicios, escala y
+maneja los despliegues.&lt;/p&gt;
+&lt;p&gt;También he intentado resumir un poco y no entrar en detalles, ya que Docker es
+mucho mas de lo que he comentado, pero nos podemos hacer a una idea del 
+potencial que tiene.&lt;/p&gt;
+&lt;h3&gt;Fuentes&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;https://docs.docker.com/&lt;/li&gt;
+&lt;li&gt;https://es.wikipedia.org/wiki/Docker_(software)&lt;/li&gt;
+&lt;li&gt;https://en.wikipedia.org/wiki/Operating-system-level_virtualization#IMPLEMENTATIONS&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Linux"></category><category term="Linux"></category><category term="Docker"></category><category term="Devops"></category></entry><entry><title>Script que se ejecuta al apagar el equipo en Systemd</title><link href="https://agutierrezrodriguez.github.io/script-que-se-ejecuta-al-apagar-el-equipo-en-systemd.html" rel="alternate"></link><published>2017-10-07T17:30:00+02:00</published><updated>2017-10-07T17:30:00+02:00</updated><author><name>Antonio Gutiérrez</name></author><id>tag:agutierrezrodriguez.github.io,2017-10-07:/script-que-se-ejecuta-al-apagar-el-equipo-en-systemd.html</id><summary type="html">&lt;p&gt;&lt;img alt="Systemd image" src="https://agutierrezrodriguez.github.io/images/systemd.png"&gt;&lt;/p&gt;
+&lt;p&gt;Hay algunas veces que necesitamos ejecutar un script al apagar el sistema, como
+por ejemplo una tarea de limpieza, un chequeo, una actualización, etc.&lt;/p&gt;
+&lt;p&gt;En sistemas con SysVinit se ponía el script en el directorio rc0.d (apagado
+del sistema) y a funcionar. Con Systemd hay que realizar un archivo …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="Systemd image" src="https://agutierrezrodriguez.github.io/images/systemd.png"&gt;&lt;/p&gt;
+&lt;p&gt;Hay algunas veces que necesitamos ejecutar un script al apagar el sistema, como
+por ejemplo una tarea de limpieza, un chequeo, una actualización, etc.&lt;/p&gt;
+&lt;p&gt;En sistemas con SysVinit se ponía el script en el directorio rc0.d (apagado
+del sistema) y a funcionar. Con Systemd hay que realizar un archivo "unit"
+para que lo entienda systemd y en dicho archivo poner el script a ejecutar.&lt;/p&gt;
+&lt;p&gt;Lo primero que hay que hacer es crear el archivo "unit" (configuración del
+servicio) en un directorio de Systemd, yo uso /etc/systemd/system/, con el
+contenido siguiente y con la extensión .service:&lt;/p&gt;
+&lt;p&gt;MiScriptDeApagado.service&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;[Unit]&lt;/span&gt;
+&lt;span class="na"&gt;Description&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Mi script de apagado&amp;quot;&lt;/span&gt;
+&lt;span class="na"&gt;Before&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;shutdown.target&lt;/span&gt;
+
+&lt;span class="k"&gt;[Service]&lt;/span&gt;
+&lt;span class="na"&gt;Type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;oneshot&lt;/span&gt;
+&lt;span class="na"&gt;RemainAfterExit&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;true&lt;/span&gt;
+&lt;span class="na"&gt;ExecStart&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;/bin/true&lt;/span&gt;
+&lt;span class="c1"&gt;# ExecStop=&amp;lt;Ruta del script a ejecutar o comando a ejecutar&amp;gt;&lt;/span&gt;
+&lt;span class="na"&gt;ExecStop&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;date -Iseconds &amp;gt;&amp;gt; /var/log/apagado.log&amp;quot;&lt;/span&gt;
+
+&lt;span class="k"&gt;[Install]&lt;/span&gt;
+&lt;span class="na"&gt;WantedBy&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;multi-user.target&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Una vez guardado dicho archivo hay que aplicar los cambios en Systemd
+reiniciando el demonio y activando el servicio de la siguiente forma&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;systemctl daemon-reload
+systemctl &lt;span class="nb"&gt;enable&lt;/span&gt; MiScriptDeApagado
+systemctl start MiScriptDeApagado
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Y con esto ya debería de funcionar. Actualmente lo tengo tal cual en un sistema
+Debian Stretch - 9 funcionando.&lt;/p&gt;
+&lt;p&gt;Si tenéis cualquier duda podéis dejarme un comentario.&lt;/p&gt;
+&lt;p&gt;Un saludo.&lt;/p&gt;</content><category term="Linux"></category><category term="Linux"></category><category term="Systemd"></category></entry></feed>
