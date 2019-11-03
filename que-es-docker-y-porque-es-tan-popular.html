@@ -1,66 +1,103 @@
-<!DOCTYPE HTML>
+
+<!DOCTYPE html>
 <html lang="es">
-	<head>
-		<title>¿Qué es Docker y porqué es tan popular?</title>
-		<meta charset="utf-8" />
-        <meta name="theme-color" content="#222" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="https://agutierrezrodriguez.github.io/theme/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="https://agutierrezrodriguez.github.io/theme/css/main.css" />
-        <link rel="stylesheet" href="https://agutierrezrodriguez.github.io/theme/css/font-awesome.min.css" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic|Source+Code+Pro:400" />
-		<!--[if lte IE 8]><link rel="stylesheet" href="https://agutierrezrodriguez.github.io/theme/css/ie8.css" /><![endif]-->
-            <link href="https://agutierrezrodriguez.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Antonio Gutiérrez Atom Feed" />
-	</head>
-	<body>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
 
-		<!-- Header -->
-			<section id="header">
-				<header>
-					<span class="image avatar"><img src="https://agutierrezrodriguez.github.io/theme/images/avatar.jpg" alt="" /></span>
-					<h1 id="logo"><a href="/">Antonio Gutiérrez</a></h1>
- <p>SysAdmin / DevOps / Python Backend</p>				</header>
-				<nav id="nav">
-					<ul>
-                                <li><a class="active" href="https://agutierrezrodriguez.github.io/category/linux.html">Linux</a></li>
-                                <li><a href="https://agutierrezrodriguez.github.io/pages/sobre-mi.html">Sobre mí</a></li>
-					</ul>
-				</nav>
-				<footer>
-                        <ul class="icons">
-                                <li><a href="https://agutierrezrodriguez.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" class="icon fa-rss"><span class="label">atom feed</span></a></li>
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
-                                <li><a href="https://www.linkedin.com/in/antonio-gutierrez-rodriguez/" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
-                                <li><a href="https://twitter.com/toniusco" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-                                <li><a href="https://github.com/agutierrezrodriguez/" class="icon fa-github"><span class="label">GitHub</span></a></li>
-                        </ul>
-				</footer>
-			</section>
+    <link rel="stylesheet" type="text/css" href="https://agutierrezrodriguez.github.io/theme/stylesheet/style.min.css">
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+  <link rel="stylesheet" type="text/css" href="https://agutierrezrodriguez.github.io/theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="https://agutierrezrodriguez.github.io/theme/font-awesome/css/font-awesome.min.css">
 
-				<!-- Main -->
-					<div id="main">
-<section id="one">
-    <div class="container">
-        <header class="major">
-            <h2><a href="https://agutierrezrodriguez.github.io/que-es-docker-y-porque-es-tan-popular.html" rel="bookmark" title="Enlace a ¿Qué es Docker y porqué es tan popular?">¿Qué es Docker y porqué es tan popular?</a></h2>
-        </header>
-        <p><div class="addthis_inline_share_toolbox"></div>
-</p>
-        <p><footer class="post-info">
-        <abbr class="published" title="2017-10-13T17:30:00+02:00">
-                Publicado el viernes 13 de octubre de 2017
-        </abbr>
 
-        <address class="vcard author">
-                Por                         <a class="url fn" href="https://agutierrezrodriguez.github.io/author/antonio-gutierrez.html">Antonio Gutiérrez</a>
-        </address>
-<p>En <a href="https://agutierrezrodriguez.github.io/category/linux.html">Linux</a>.</p>
+    <link href="https://agutierrezrodriguez.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Antonio Gutiérrez Atom">
 
-</footer><!-- /.post-info --></p>
-        <p><p><img alt="Docker imagen" src="https://agutierrezrodriguez.github.io/images/docker.png"></p>
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-101620037-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="Antonio Gutiérrez" />
+<meta name="description" content="Para quien no lo conozca, Docker es un sistema de virtualización basado en contenedores o virtualización de sistema operativo que funciona bajo sistemas Linux y permite ejecutar los contenedores (máquinas virtuales) sin apenas penalización. Un poco de historia La primera versión de Docker fue lanzada en marzo de 2013 como …" />
+<meta name="keywords" content="Linux, Docker, Devops">
+
+<meta property="og:site_name" content="Antonio Gutiérrez"/>
+<meta property="og:title" content="¿Qué es Docker y porqué es tan popular?"/>
+<meta property="og:description" content="Para quien no lo conozca, Docker es un sistema de virtualización basado en contenedores o virtualización de sistema operativo que funciona bajo sistemas Linux y permite ejecutar los contenedores (máquinas virtuales) sin apenas penalización. Un poco de historia La primera versión de Docker fue lanzada en marzo de 2013 como …"/>
+<meta property="og:locale" content="es_ES"/>
+<meta property="og:url" content="https://agutierrezrodriguez.github.io/que-es-docker-y-porque-es-tan-popular.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2017-10-13 17:30:00+02:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://agutierrezrodriguez.github.io/author/antonio-gutierrez.html">
+<meta property="article:section" content="Linux"/>
+<meta property="article:tag" content="Linux"/>
+<meta property="article:tag" content="Docker"/>
+<meta property="article:tag" content="Devops"/>
+<meta property="og:image" content="/images/agutierrez.jpg">
+
+  <title>Antonio Gutiérrez &ndash; ¿Qué es Docker y porqué es tan popular?</title>
+
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="https://agutierrezrodriguez.github.io">
+        <img src="/images/agutierrez.jpg" alt="" title="">
+      </a>
+      <h1><a href="https://agutierrezrodriguez.github.io"></a></h1>
+
+<p>SysAdmin / DevOps / Python Backend</p>
+      <nav>
+        <ul class="list">
+            <li><a href="https://agutierrezrodriguez.github.io/category/linux.html">Linux</a></li>
+
+            <li><a href="https://agutierrezrodriguez.github.io/pages/sobre-mi.html">Sobre mí</a></li>
+
+        </ul>
+      </nav>
+
+      <ul class="social">
+        <li><a class="sc-rss" href="feeds/all.atom.xml" target="_blank"><i class="fa fa-rss"></i></a></li>
+        <li><a class="sc-linkedin" href="https://www.linkedin.com/in/antonio-gutierrez-rodriguez/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        <li><a class="sc-twitter" href="https://twitter.com/toniusco" target="_blank"><i class="fa fa-twitter"></i></a></li>
+        <li><a class="sc-github" href="https://github.com/agutierrezrodriguez/" target="_blank"><i class="fa fa-github"></i></a></li>
+      </ul>
+    </div>
+
+
+  </aside>
+  <main>
+
+
+<article class="single">
+  <header>
+      
+    <h1 id="que-es-docker-y-porque-es-tan-popular">¿Qué es Docker y porqué es tan popular?</h1>
+    <p>
+      Publicado el viernes 13 de octubre de 2017 en <a href="https://agutierrezrodriguez.github.io/category/linux.html">Linux</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <p><img alt="Docker imagen" src="https://agutierrezrodriguez.github.io/images/docker.png"></p>
 <p>Para quien no lo conozca, Docker es un sistema de virtualización basado en 
 contenedores o virtualización de sistema operativo que funciona bajo sistemas
 Linux y permite ejecutar los contenedores (máquinas virtuales) sin apenas 
@@ -171,58 +208,62 @@ potencial que tiene.</p>
 <li>https://docs.docker.com/</li>
 <li>https://es.wikipedia.org/wiki/Docker_(software)</li>
 <li>https://en.wikipedia.org/wiki/Operating-system-level_virtualization#IMPLEMENTATIONS</li>
-</ul></p>
-            <div class="comments">
-                <div id="disqus_thread"></div>
-                <script type="text/javascript">
-                    var disqus_shortname = 'agutierrezrodriguez-github-io';
-                    var disqus_config = function () {
-                        this.page.title = 'que-es-docker-y-porque-es-tan-popular';
-                        this.page.identifier = 'que-es-docker-y-porque-es-tan-popular.html';
-                        this.page.url = 'https://agutierrezrodriguez.github.io/que-es-docker-y-porque-es-tan-popular.html';
-                    };
-                    (function() {
-                        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                        dsq.src = '//agutierrezrodriguez-github-io.disqus.com/embed.js';
-                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-                    })();
-                </script>
-                <noscript>Por favor, habilita javascript para ver los comentarios.</noscript>
-            </div>
-    </div>
-</section>
-					</div>
+</ul>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://agutierrezrodriguez.github.io/tag/linux.html">Linux</a>
+      <a href="https://agutierrezrodriguez.github.io/tag/docker.html">Docker</a>
+      <a href="https://agutierrezrodriguez.github.io/tag/devops.html">Devops</a>
+    </p>
+  </div>
 
-				<!-- Footer -->
-					<section id="footer">
-						<div class="container">
-							<ul class="copyright">
-								<li>&copy; Antonio Gutiérrez. Todos los derechos reservados.</li><li>Diseño: <a href="http://html5up.net">HTML5 UP</a></li>
-							</ul>
-						</div>
-					</section>
+  <div class="center social-share">
+    <p>¿Te gusta este artículo? ¡Compártelo con tus amigos!</p>
+    <div class="addthis_native_toolbox"></div>
+    <div class="addthis_sharing_toolbox"></div>
+    <div class="addthis_inline_share_toolbox"></div>
+  </div>
 
-			</div>
 
-		<!-- Scripts -->
-        <script src="theme/js/jquery.min.js"></script>
-        <script src="theme/js/jquery.scrollzer.min.js"></script>
-        <script src="theme/js/jquery.scrolly.min.js"></script>
-        <script src="theme/js/skel.min.js"></script>
-        <script src="theme/js/util.js"></script>
-        <!--[if lte IE 8]><script src="theme/js/ie/respond.min.js"></script><![endif]-->
-        <script src="theme/js/main.js"></script>
+    <div class="addthis_relatedposts_inline"></div>
 
-            <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-598f3d1eafff98c0"></script>
 
-    <script type="text/javascript">
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'agutierrezrodriguez-github-io';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Por favor, habilita JavaScript para ver los comentarios.
+</noscript>
+<!-- End Disqus -->
+</article>
 
-    ga('create', 'UA-101620037-1', 'auto');
-    ga('send', 'pageview');
-    </script>
-	</body>
+    <footer>
+<p>&copy;  </p>
+<p>Este sitio usa <a href="http://getpelican.com" target="_blank">Pelican</a> - tema <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> por <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a></p>    </footer>
+  </main>
+
+
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-598f3d1eafff98c0" async="async"></script>
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Antonio Gutiérrez ",
+  "url" : "https://agutierrezrodriguez.github.io",
+  "image": "/images/agutierrez.jpg",
+  "description": ""
+}
+</script>
+
+</body>
 </html>

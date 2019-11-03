@@ -1,4 +1,1 @@
-User-agent: *
-Disallow: /theme
-
-sitemap: /sitemap.xml
+sitemap: https://agutierrezrodriguez.github.io/sitemap.xml
